@@ -3,9 +3,28 @@
   "version": "1.0.0",
   "description": "Awesome tree grid.",
   "private": true,
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "author": "Vladimri Kubantsev <trihlord@yandex.ru>",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@chromatic-com/storybook": "^1.2.25",
+    "@storybook/addon-essentials": "^8.0.4",
+    "@storybook/addon-interactions": "^8.0.4",
+    "@storybook/addon-links": "^8.0.4",
+    "@storybook/addon-onboarding": "^8.0.4",
+    "@storybook/blocks": "^8.0.4",
+    "@storybook/react": "^8.0.4",
+    "@storybook/react-vite": "^8.0.4",
+    "@storybook/test": "^8.0.4",
+    "@vitejs/plugin-react": "^4.2.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^8.0.4",
+    "vite": "^5.2.3"
+  }
 }
