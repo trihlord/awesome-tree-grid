@@ -1,3 +1,3 @@
 export function TreeGrid() {
-    return null;
+  return <table></table>;
 }

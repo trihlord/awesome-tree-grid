@@ -1,4 +1,4 @@
-import type { StorybookConfig } from '@storybook/react-vite';
+import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
   stories: [
@@ -21,7 +21,8 @@ const config: StorybookConfig = {
   },
   core: {
     disableTelemetry: true,
-    disableWhatsNewNotifications: true
-  }
+    disableWhatsNewNotifications: true,
+  },
 };
+
 export default config;
