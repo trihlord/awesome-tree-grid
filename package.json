@@ -1,0 +1,11 @@
+{
+  "name": "awesome-tree-grid",
+  "version": "1.0.0",
+  "description": "Awesome tree grid.",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vladimri Kubantsev <trihlord@yandex.ru>",
+  "license": "ISC"
+}
