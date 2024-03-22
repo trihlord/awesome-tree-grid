@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "fix-lint": "eslint . --fix"
   },
-  "author": "Vladimri Kubantsev <trihlord@yandex.ru>",
+  "author": "Vladimir Kubantsev <trihlord@yandex.ru>",
   "license": "ISC",
   "devDependencies": {
     "@chromatic-com/storybook": "^1.2.25",
