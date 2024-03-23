@@ -15,7 +15,9 @@ export const Countries: Story = {
   render: function () {
     type Country = { id: number; name: string; postcode: number };
     const countries: Country[] = [{ id: 0, name: "Russia", postcode: 117 }];
-    const columns: TreeGridColumn<Country>[] = [{ key: "name" }];
+    const columns: TreeGridColumn<Country>[] = [
+      { key: "name", render: "name" },
+    ];
     const row: TreeGridRow<Country> = { key: "id" };
     return <TreeGrid columns={columns} data={countries} row={row} />;
   },

@@ -6,16 +6,13 @@ export type TreeGridRender<T> =
 
 export interface TreeGridDataProps<T> {
   data: T;
-  render?: TreeGridRender<T>;
+  render: TreeGridRender<T>;
 }
 
 export function TreeGridData<T extends object>({
   data,
   render,
 }: TreeGridDataProps<T>) {
-  if (!render) {
-    return null;
-  }
   if (typeof render === "function") {
     return render(data);
   }
@@ -29,7 +26,7 @@ export interface TreeGridColumn<T> {
   key: Key;
   title?: ReactNode;
   width?: CSSProperties["width"];
-  render?: TreeGridRender<T>;
+  render: TreeGridRender<T>;
 }
 
 export interface TreeGridRow<T> {
