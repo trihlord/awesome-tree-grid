@@ -33,10 +33,23 @@ export interface TreeGridRow<T> {
   key: { [x in keyof T]: T[x] extends Key ? x : never }[keyof T];
 }
 
+function makeGetRowKey<T>(row: TreeGridRow<T> | undefined) {
+  if (!row) {
+    return function () {
+      return null;
+    };
+  }
+  return function (data: T) {
+    // FIXME narrow type for `key` with `row.key` being an instance of `data`
+    // field name, which respective value satisfies `Key` type.
+    return data[row.key] as Key;
+  };
+}
+
 export interface TreeGridProps<T> {
   columns?: TreeGridColumn<T>[];
   data?: T[];
-  row: TreeGridRow<T>;
+  row?: TreeGridRow<T>;
 }
 
 export function TreeGrid<T extends object>({
@@ -44,6 +57,7 @@ export function TreeGrid<T extends object>({
   data = [],
   row,
 }: TreeGridProps<T>) {
+  const getRowKey = makeGetRowKey(row);
   return (
     <table role="treegrid">
       <colgroup>
@@ -64,9 +78,8 @@ export function TreeGrid<T extends object>({
       </thead>
       <tbody>
         {data.map(function (data) {
-          const key = data[row.key] as Key;
           return (
-            <tr key={key}>
+            <tr key={getRowKey(data)}>
               {columns.map(function ({ key, render }) {
                 return (
                   <td key={key} role="gridcell">
