@@ -1,4 +1,8 @@
 /** @type {import('stylelint').Config} */
 export default {
-  extends: ["stylelint-config-standard", "stylelint-prettier/recommended"],
+  extends: [
+    "stylelint-config-standard",
+    "stylelint-config-recess-order",
+    "stylelint-prettier/recommended",
+  ],
 };

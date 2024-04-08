@@ -1,4 +1,6 @@
+import { clsx } from "clsx";
 import type { CSSProperties, Key, ReactNode } from "react";
+import styles from "./TreeGrid.module.css";
 
 export type TreeGridRender<T> =
   | ((data: T) => ReactNode)
@@ -59,7 +61,7 @@ export function TreeGrid<T extends object>({
 }: TreeGridProps<T>) {
   const getRowKey = makeGetRowKey(row);
   return (
-    <table role="treegrid">
+    <table className={styles.table} role="treegrid">
       <colgroup>
         {columns.map(function ({ key, width }) {
           return <col key={key} style={{ width }} />;
@@ -69,9 +71,20 @@ export function TreeGrid<T extends object>({
         <tr>
           {columns.map(function ({ key, title }) {
             return (
-              <th key={key} scope="col">
+              <th
+                className={clsx(styles.cell, styles.header)}
+                key={key}
+                scope="col"
+              >
                 {title}
               </th>
+            );
+          })}
+        </tr>
+        <tr>
+          {columns.map(function ({ key }) {
+            return (
+              <td className={clsx(styles.cell, styles.separator)} key={key} />
             );
           })}
         </tr>
@@ -82,7 +95,7 @@ export function TreeGrid<T extends object>({
             <tr key={getRowKey(data)}>
               {columns.map(function ({ key, render }) {
                 return (
-                  <td key={key} role="gridcell">
+                  <td className={styles.cell} key={key} role="gridcell">
                     <TreeGridData data={data} render={render} />
                   </td>
                 );

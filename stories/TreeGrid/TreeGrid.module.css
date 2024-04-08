@@ -1,0 +1,19 @@
+.table {
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.cell {
+  padding: 0;
+}
+
+.header {
+  font-weight: 500;
+}
+
+.separator {
+  height: 8px;
+  border-top: 1px solid;
+}
